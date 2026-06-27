@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Gerenciador de Tarefas</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f4f4;
+            text-align:center;
+            margin-top:40px;
+        }
+
+        input{
+            padding:10px;
+            width:250px;
+        }
+
+        button{
+            padding:8px 12px;
+            margin-left:5px;
+        }
+
+        ul{
+            list-style:none;
+            padding:0;
+        }
+
+        li{
+            background:white;
+            width:350px;
+            margin:10px auto;
+            padding:10px;
+            border-radius:5px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<h1>Gerenciador de Tarefas</h1>
+
+<form method="POST">
+
+    <input
+        type="text"
+        name="tarefa"
+        placeholder="Digite uma tarefa">
+
+    <button type="submit">Adicionar</button>
+
+</form>
+
+<h2>Tarefas</h2>
+
+<ul>
+
+{% for tarefa in tarefas %}
+
+<li>
+
+{{ tarefa }}
+
+<a href="/excluir/{{ loop.index0 }}">
+<button>Excluir</button>
+</a>
+
+</li>
+
+{% endfor %}
+
+</ul>
+
+</body>
+
+</html>
