@@ -11,19 +11,23 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    defaults:
+      run:
+        working-directory: gerente-de-tarefas
+
     steps:
-    - name: Baixar código
-      uses: actions/checkout@v4
+      - name: Baixar código
+        uses: actions/checkout@v4
 
-    - name: Instalar Python
-      uses: actions/setup-python@v5
-      with:
-        python-version: '3.11'
+      - name: Instalar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
 
-    - name: Instalar dependências
-      run: |
-        pip install pytest
+      - name: Instalar dependências
+        run: |
+          pip install flask pytest
 
-    - name: Executar testes
-      run: |
-        pytest
+      - name: Executar testes
+        run: |
+          python -m pytest
